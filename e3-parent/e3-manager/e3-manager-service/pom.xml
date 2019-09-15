@@ -9,9 +9,9 @@
 	</parent>
 	<artifactId>e3-manager-service</artifactId>
 	<packaging>war</packaging>
-	
+
 	<dependencies>
-	<dependency>
+		<dependency>
 			<groupId>cn.e3mall</groupId>
 			<artifactId>e3-manager-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -21,7 +21,7 @@
 			<artifactId>e3-manager-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!-- spring的依赖 -->
 		<!-- Spring -->
 		<dependency>
@@ -75,6 +75,14 @@
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
-		
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
