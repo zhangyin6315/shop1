@@ -111,18 +111,18 @@ var E3 = {
     		}else{
     			_ele.after("<span style='margin-left:10px;'></span>");
     		}
-    		_ele.unbind('click').click(function(){
+    		_ele.unbind('click').click(function(){//解除绑定事件再绑定事件
     			$("<div>").css({padding:"5px"}).html("<ul>")
     			.window({
     				width:'500',
     			    height:"450",
-    			    modal:true,
+    			    modal:true,	
     			    closed:true,
     			    iconCls:'icon-save',
     			    title:'选择类目',
-    			    onOpen : function(){
+    			    onOpen : function(){//打开一个事件
     			    	var _win = this;
-    			    	$("ul",_win).tree({
+    			    	$("ul",_win).tree({//easyUI的tree控件
     			    		url:'/item/cat/list',
     			    		animate:true,
     			    		onClick : function(node){
