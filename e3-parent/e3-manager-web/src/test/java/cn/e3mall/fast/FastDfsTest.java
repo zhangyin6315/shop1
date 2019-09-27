@@ -5,7 +5,9 @@ import org.csource.fastdfs.StorageClient;
 import org.csource.fastdfs.StorageServer;
 import org.csource.fastdfs.TrackerClient;
 import org.csource.fastdfs.TrackerServer;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import cn.e3mall.common.utils.FastDFSClient;
 
 public class FastDfsTest {
 	@Test
@@ -29,4 +31,15 @@ public void testUpload() throws Exception {
 	
 
 }
+	@Test
+public void testFastrDfsClient() throws Exception {
+	FastDFSClient fastDFSClient=new FastDFSClient("H:\\git\\e3-parent\\e3-parent\\e3-manager-web\\src\\test\\resources\\conf\\client.conf");
+	//使用StorageClient上传
+	String strings=fastDFSClient.uploadFile("C:\\Users\\User\\Pictures\\Camera Roll\\无标题.png");
+	System.out.println(strings);
+	
+
+}
+	
+	
 }
