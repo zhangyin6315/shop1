@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.e3mall.pojo.TbItem;
+import cn.e3mall.pojo.TbItemCat;
 import cn.e3mall.service.ItemCatService;
 import cn.e3mall.service.ItemService;
 import cn.e3malll.common.pojo.EasyUIDataFGridResult;
@@ -26,4 +27,11 @@ public class ItemCatController {
 	List<EasyUITreeNode> list=itemCatService.getItemCatlist(parentId);
 	return list;
 	}
+	@RequestMapping("/item/param/query/itemcatid/{itemcatId}")
+	@ResponseBody
+	public TbItemCat getTbItemCatById(@PathVariable Long itemcatId) {
+		TbItemCat tbItemCat =itemCatService.getTbItemCatById(itemcatId);
+		return tbItemCat;
+	}
+	
 }

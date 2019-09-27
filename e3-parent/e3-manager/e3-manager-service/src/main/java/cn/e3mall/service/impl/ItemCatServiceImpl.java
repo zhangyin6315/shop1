@@ -35,4 +35,11 @@ private TbItemCatMapper  tbItemCatMapper;
 		return resultlist;
 	}
 
+	@Override
+	public TbItemCat getTbItemCatById(Long itemcatId) {
+		// TODO Auto-generated method stub
+		TbItemCat tbItemCat=tbItemCatMapper.selectByPrimaryKey(itemcatId);
+		return tbItemCat;
+	}
+
 }

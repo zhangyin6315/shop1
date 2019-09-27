@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用， -->
+<mapper namespace="cn.e3mall.mapper.ParamItemMapper">
+<resultMap type="cn.manager.model.ParamItem" id="baseResult">
+<id column="id" property="id" jdbcType="BIGINT"/>
+<result column="item_id" property="itemId" jdbcType="BIGINT"/>
+<result column="param_data" property="paramData" jdbcType="LONGVARCHAR"/>
+<result column="created" property="created" jdbcType="TIMESTAMP"/>
+<result column="updated" property="updated" jdbcType="TIMESTAMP"/>
+<result column="name" property="itemCatName" jdbcType="VARCHAR"/>
+</resultMap>
+
+
+<!--查询规格参数 -->
+<select id="selectParamItemList" resultMap="baseResult">
+select 
+	tip.id,
+	tip.item_id,
+	tip.param_data,
+	tip.created,
+	tip.updated,
+	tic.name 
+from 
+tb_item_param_item tip
+left join tb_item_cat tic 
+on tip.item_id=tic.id
+	
+</select>
+
+</mapper>

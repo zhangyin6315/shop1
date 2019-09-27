@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * 淘淘商城自定义响应结构
+ * 自定义响应结构
  */
 public class E3Result implements Serializable {
 
@@ -84,7 +84,7 @@ public class E3Result implements Serializable {
     }
 
     /**
-     * 将json结果集转化为TaotaoResult对象
+     * 将json结果集转化为Result对象
      * 
      * @param jsonData json数据
      * @param clazz TaotaoResult中的object类型
