@@ -1,5 +1,6 @@
 package cn.e3mall.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import com.github.pagehelper.PageInfo;
 
 import cn.e3mall.common.utils.E3Result;
 import cn.e3mall.mapper.ParamItemMapper;
+import cn.e3mall.mapper.TbItemParamItemMapper;
+import cn.e3mall.pojo.TbItemParamItem;
 import cn.e3mall.service.ItemParamService;
 import cn.e3malll.common.pojo.EasyUIDataFGridResult;
 import cn.manager.model.ParamItem;
@@ -17,6 +20,8 @@ import cn.manager.model.ParamItem;
 public class ItemParamServiceImpl implements ItemParamService {
 	@Autowired
 	private ParamItemMapper paramItemMapper;
+	@Autowired
+	private TbItemParamItemMapper tbItemParamItemMapper;
 	@Override
 	public EasyUIDataFGridResult getParamItemList(Integer page, Integer rows) {
 					// 设置分页信息
@@ -42,5 +47,18 @@ public class ItemParamServiceImpl implements ItemParamService {
 	
 		return E3Result.ok();
 	}
+	@Override
+	public E3Result insertItemParam(Long itemCatid, String paramData) {
+		// TODO Auto-generated method stub
+		TbItemParamItem tbItemParamItem=new TbItemParamItem();
+		tbItemParamItem.setId(itemCatid);
+		tbItemParamItem.setParamData(paramData);
+		tbItemParamItem.setCreated(new Date());
+		tbItemParamItem.setUpdated(new Date());
+		
+		tbItemParamItemMapper.insert(tbItemParamItem);
+		return E3Result.ok();
+	}
+	
 
 }
