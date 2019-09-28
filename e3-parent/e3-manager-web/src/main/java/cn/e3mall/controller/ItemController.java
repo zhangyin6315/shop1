@@ -100,15 +100,6 @@ public class ItemController {
 		E3Result result =itemService.updateItem(item,desc);
 		return result;
 	}
-	/**
-	 *查询规格参数
-	 */
-	@RequestMapping("/item/param/list")
-	@ResponseBody
-	public EasyUIDataFGridResult getParamItemList(Integer page ,Integer rows) {
-		EasyUIDataFGridResult result=itemService.getParamItemList(page,rows);
-		return result;
-		
-	}
+
 	
 }

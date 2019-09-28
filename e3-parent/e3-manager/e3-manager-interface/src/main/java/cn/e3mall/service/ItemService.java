@@ -14,6 +14,4 @@ E3Result instockItem(String ids);
 E3Result reshelfItem(String ids);
 TbItemDesc selectTbItemDesc(Long itemId);
 E3Result updateItem(TbItem item, String desc);
-EasyUIDataFGridResult getParamItemList(Integer page, Integer rows);
-
 }

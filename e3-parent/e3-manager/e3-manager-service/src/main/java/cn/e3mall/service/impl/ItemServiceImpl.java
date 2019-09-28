@@ -28,8 +28,7 @@ public class ItemServiceImpl implements ItemService {
 	private TbItemMapper itemMapper;
 	@Autowired
 	private TbItemDescMapper itemDescMapper;
-	@Autowired
-	private ParamItemMapper paramItemMapper;
+
 	@Override
 	public TbItem getItemById(Long itemId) {
 		// TODO Auto-generated method stub
@@ -55,22 +54,7 @@ public class ItemServiceImpl implements ItemService {
 		return result;
 	}
 	
-	@Override
-	public EasyUIDataFGridResult getParamItemList(Integer page, Integer rows) {
-				// 设置分页信息
-				PageHelper.startPage(page,rows);
-				//执行查询
-				List<ParamItem> list=paramItemMapper.selectParamItemList();
-				//取分页结果
-				PageInfo<ParamItem> pageInfo=new PageInfo<>(list);
-				//创建结果集
-				EasyUIDataFGridResult result=new EasyUIDataFGridResult();
-				//取总记录数
-				long total=pageInfo.getTotal();
-				result.setTotal(total);
-				result.setRows(list);
-				return result;
-	}
+
 	
 	
 	@Override

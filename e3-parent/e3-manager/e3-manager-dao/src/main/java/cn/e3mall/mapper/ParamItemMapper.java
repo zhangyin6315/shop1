@@ -13,4 +13,6 @@ public interface ParamItemMapper {
 
 	List<ParamItem> selectParamItemList();
 
+	void deleteById(Long id);
+
 }
