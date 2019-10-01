@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.e3mall.pojo.TbItem;
+import cn.e3mall.common.pojo.EasyUITreeNode;
 import cn.e3mall.pojo.TbItemCat;
 import cn.e3mall.service.ItemCatService;
-import cn.e3mall.service.ItemService;
-import cn.e3malll.common.pojo.EasyUIDataFGridResult;
-import cn.e3malll.common.pojo.EasyUITreeNode;
 @Controller
 public class ItemCatController {
 	@Autowired

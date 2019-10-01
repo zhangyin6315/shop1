@@ -15,7 +15,7 @@ $(function(){
 		url : '/content/category/list',
 		animate: true,
 		method : "GET",
-		onContextMenu: function(e,node){
+		onContextMenu: function(e,node){//右击事件 e事件对象
             e.preventDefault();
             $(this).tree('select',node.target);
             $('#contentCategoryMenu').menu('show',{
@@ -23,7 +23,7 @@ $(function(){
                 top: e.pageY
             });
         },
-        onAfterEdit : function(node){
+        onAfterEdit : function(node){ //编辑结束触发事件
         	var _tree = $(this);
         	if(node.id == 0){
         		// 新增节点
@@ -62,8 +62,16 @@ function menuHandler(item){
 	}else if(item.name === "delete"){
 		$.messager.confirm('确认','确定删除名为 '+node.text+' 的分类吗？',function(r){
 			if(r){
-				$.post("/content/category/delete/",{id:node.id},function(){
-					tree.tree("remove",node.target);
+				$.post("/content/category/delete/",{id:node.id},function(data){
+					
+					if(data.status == 200) {
+						tree.tree("remove",node.target);
+					} 
+					if(data.status == 404){
+						$.messager.alert('提示','这个目录下分类不能删除','info');
+					}
+						
+					
 				});	
 			}
 		});
