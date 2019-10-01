@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.e3mall.common.pojo.EasyUIDataFGridResult;
 import cn.e3mall.common.utils.E3Result;
-import cn.e3mall.pojo.TbItemParamItem;
 import cn.e3mall.service.ItemParamService;
-import cn.e3malll.common.pojo.EasyUIDataFGridResult;
-import cn.manager.model.ParamItem;
 @Controller
 public class ItemParamController {
 	@Autowired 
