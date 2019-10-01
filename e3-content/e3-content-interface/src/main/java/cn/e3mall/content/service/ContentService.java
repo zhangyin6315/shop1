@@ -10,4 +10,7 @@ public interface ContentService {
 E3Result addcontent(TbContent content);
 
 List<TbContent> getContentList(Long categoryId);
+E3Result editContent(TbContent content);
+
+E3Result deleteContent(String ids);
 }

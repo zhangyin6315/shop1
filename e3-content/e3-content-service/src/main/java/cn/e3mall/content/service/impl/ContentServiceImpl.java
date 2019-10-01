@@ -38,5 +38,18 @@ private TbContentMapper contentMapper;
 			
 		return list;
 	}
-
+	@Override
+	public E3Result editContent(TbContent content) {
+		// TODO Auto-generated method stub
+		content.setUpdated(new Date());
+		contentMapper.updateByPrimaryKey(content);
+		return E3Result.ok();
+	}
+	@Override
+	public E3Result deleteContent(String ids) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<ids.split(",").length;i++) {
+		contentMapper.deleteByPrimaryKey(Long.valueOf(ids.split(",")[i]));}
+		return E3Result.ok();
+		}
 }
