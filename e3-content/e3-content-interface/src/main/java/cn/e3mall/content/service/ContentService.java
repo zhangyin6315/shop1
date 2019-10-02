@@ -13,4 +13,5 @@ List<TbContent> getContentList(Long categoryId);
 E3Result editContent(TbContent content);
 
 E3Result deleteContent(String ids);
+
 }
