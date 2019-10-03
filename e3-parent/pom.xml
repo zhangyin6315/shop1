@@ -37,6 +37,7 @@
 		<activemq.version>5.11.2</activemq.version>
 		<freemarker.version>2.3.23</freemarker.version>
 		<quartz.version>2.2.2</quartz.version>
+		
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -162,6 +163,8 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+		
+			
 			<!-- JSP相关 -->
 			<dependency>
 				<groupId>jstl</groupId>
