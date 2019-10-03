@@ -3,7 +3,12 @@ package cn.e3mall.pojo;
 import java.io.Serializable;
 
 public class TbOrderItem implements Serializable{
-    private String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String id;
 
     private String itemId;
 

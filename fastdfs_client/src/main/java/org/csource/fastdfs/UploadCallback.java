@@ -9,9 +9,6 @@
 package org.csource.fastdfs;
 
 import java.io.*;
-import java.util.*;
-import java.net.*;
-import org.csource.common.*;
 
 /**
 * upload file callback interface

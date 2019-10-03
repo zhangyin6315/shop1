@@ -15,7 +15,12 @@ package org.csource.common;
 */
 public class MyException extends Exception
 {
-    public MyException()
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MyException()
     {
     }
     

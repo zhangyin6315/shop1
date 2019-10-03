@@ -18,7 +18,6 @@ private TbItemCatMapper  tbItemCatMapper;
 	
 	@Override
 	public List<EasyUITreeNode> getItemCatlist(Long parentId) {
-		// TODO Auto-generated method stub
 		TbItemCatExample example=new TbItemCatExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andParentIdEqualTo(parentId);
@@ -37,7 +36,6 @@ private TbItemCatMapper  tbItemCatMapper;
 
 	@Override
 	public TbItemCat getTbItemCatById(Long itemcatId) {
-		// TODO Auto-generated method stub
 		TbItemCat tbItemCat=tbItemCatMapper.selectByPrimaryKey(itemcatId);
 		return tbItemCat;
 	}

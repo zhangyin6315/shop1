@@ -10,7 +10,6 @@ package org.csource.fastdfs;
 
 import java.net.*;
 import java.io.*;
-import java.net.*;
 import org.csource.common.*;
 
 /**

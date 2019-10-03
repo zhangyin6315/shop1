@@ -40,7 +40,6 @@ public class ItemParamServiceImpl implements ItemParamService {
 	}
 	@Override
 	public E3Result delItemParam(String ids) {
-		// TODO Auto-generated method stub
 		for(int i=0;i<ids.split(",").length;i++) {
 			paramItemMapper.deleteById(Long.valueOf(ids.split(",")[i]));
 		}
@@ -49,7 +48,6 @@ public class ItemParamServiceImpl implements ItemParamService {
 	}
 	@Override
 	public E3Result insertItemParam(Long itemCatid, String paramData) {
-		// TODO Auto-generated method stub
 		TbItemParamItem tbItemParamItem=new TbItemParamItem();
 		tbItemParamItem.setId(itemCatid);
 		tbItemParamItem.setParamData(paramData);

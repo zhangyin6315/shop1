@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.github.pagehelper.PageHelper;
@@ -32,5 +33,7 @@ public class PageHelperTest {
 	 System.out.println(pageInfo.getPages());
 	 System.out.println(pageInfo.getPageNum());
 	 System.out.println(list.size());
+	//关闭applicationContext
+	 ((ConfigurableApplicationContext)applicationContext).close();
  }
 }

@@ -47,7 +47,6 @@ private String CONTENT_LIST;
 				return list;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
@@ -65,14 +64,12 @@ private String CONTENT_LIST;
 				try {
 					jedisClient.hset(CONTENT_LIST, categoryId+"", JsonUtils.objectToJson(list));
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 				}
 		return list;
 	}
 	@Override
 	public E3Result editContent(TbContent content) {
-		// TODO Auto-generated method stub
 		content.setUpdated(new Date());
 		contentMapper.updateByPrimaryKey(content);
 		//删除缓存中对应数据
@@ -82,7 +79,6 @@ private String CONTENT_LIST;
 	@Override
 	public E3Result deleteContent(String ids) {
 		
-		// TODO Auto-generated method stub
 		for(int i=0;i<ids.split(",").length;i++) {
 			String id=ids.split(",")[i];
 			//删除缓存中对应数据

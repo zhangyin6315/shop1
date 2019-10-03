@@ -29,7 +29,6 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public TbItem getItemById(Long itemId) {
-		// TODO Auto-generated method stub
 		TbItem tbItem=itemMapper.selectByPrimaryKey(itemId);
 		
 		return tbItem;
@@ -82,7 +81,6 @@ public class ItemServiceImpl implements ItemService {
 	}
 	@Override
 	public E3Result delItem(String ids) {
-		// TODO Auto-generated method stub
 		String [] a=ids.split(",");
 		for(int i=0;i<a.length;i++) {
 			itemMapper.deleteByPrimaryKey(Long.valueOf(a[i]));
@@ -95,7 +93,6 @@ public class ItemServiceImpl implements ItemService {
 	 */
 	@Override
 	public E3Result instockItem(String ids) {
-		// TODO Auto-generated method stub
 				TbItem tbItem=null;
 				String [] a=ids.split(",");
 				for(int i=0;i<a.length;i++) {
@@ -111,7 +108,6 @@ public class ItemServiceImpl implements ItemService {
 	 */
 	@Override
 	public E3Result reshelfItem(String ids) {
-		// TODO Auto-generated method stub
 				TbItem tbItem=null;
 				String [] a=ids.split(",");
 				for(int i=0;i<a.length;i++) {
@@ -124,7 +120,6 @@ public class ItemServiceImpl implements ItemService {
 	}
 	@Override
 	public TbItemDesc selectTbItemDesc(Long itemId) {
-		// TODO Auto-generated method stub
 		TbItemDesc tbItemDesc=itemDescMapper.selectByPrimaryKey(itemId);
 		
 		return tbItemDesc;

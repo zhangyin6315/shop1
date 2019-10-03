@@ -11,7 +11,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,14 +35,13 @@ public String uploadFile(MultipartFile uploadFile) {
 	//补充为完整的url
 		url=IMAGE_SERVER_URL+url;
 	//封装到map
-		Map result=new HashMap<>();
+		Map<Object, Object> result=new HashMap<>();
 		result.put("error",0);
 		result.put("url", url);
 		return JsonUtils.objectToJson(result);
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
-		Map result=new HashMap<>();
+		Map<Object, Object> result=new HashMap<>();
 		result.put("error",1);
 		result.put("message", "图片上传失败");
 		return JsonUtils.objectToJson(result);

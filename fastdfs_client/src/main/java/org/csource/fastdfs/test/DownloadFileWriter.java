@@ -9,8 +9,6 @@
 package org.csource.fastdfs.test;
 
 import java.io.*;
-import java.util.*;
-import java.net.*;
 import org.csource.fastdfs.*;
 
 /**

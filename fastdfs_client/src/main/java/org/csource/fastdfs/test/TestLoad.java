@@ -8,10 +8,6 @@
 
 package org.csource.fastdfs.test;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import org.csource.common.*;
 import org.csource.fastdfs.*;
 
 /**
@@ -21,6 +17,7 @@ import org.csource.fastdfs.*;
 */
 public class TestLoad
 {
+	@SuppressWarnings("rawtypes")
 	public static java.util.concurrent.ConcurrentLinkedQueue file_ids;
 	public static int total_download_count = 0;
 	public static int success_download_count = 0;
@@ -62,7 +59,8 @@ public class TestLoad
   		this.trackerServer = tracker.getConnection();
 		}
 		
-  	public int uploadFile() throws Exception
+  	@SuppressWarnings("unchecked")
+	public int uploadFile() throws Exception
   	{
   		StorageServer storageServer = null;
   		StorageClient1 client = new StorageClient1(trackerServer, storageServer);
@@ -216,13 +214,13 @@ public class TestLoad
 						continue;
 					}
 					
-					synchronized (this.counter_lock)
+					synchronized (DownloadThread.counter_lock)
 					{
 						TestLoad.total_download_count++;
 					}
     			if (downloader.downloadFile(file_id) == 0)
     			{
-    				synchronized (this.counter_lock)
+    				synchronized (DownloadThread.counter_lock)
     				{
     					TestLoad.success_download_count++;
     				}
@@ -242,13 +240,13 @@ public class TestLoad
 						continue;
 					}
 					
-					synchronized (this.counter_lock)
+					synchronized (DownloadThread.counter_lock)
 					{
 						TestLoad.total_download_count++;
 					}
     			if (downloader.downloadFile(file_id) == 0)
     			{
-    				synchronized (this.counter_lock)
+    				synchronized (DownloadThread.counter_lock)
     				{
     					TestLoad.success_download_count++;
     				}
@@ -280,7 +278,8 @@ public class TestLoad
 	* @param args comand arguments
 	*     <ul><li>args[0]: config filename</li></ul>
 	*/
-  public static void main(String args[])
+  @SuppressWarnings("rawtypes")
+public static void main(String args[])
   {
   	if (args.length < 1)
   	{

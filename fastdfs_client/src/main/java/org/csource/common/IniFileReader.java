@@ -10,7 +10,6 @@ package org.csource.common;
 
 import java.io.*;
 import java.util.*;
-import org.csource.common.*;
 
 /**
 * ini file reader / parser
@@ -19,6 +18,7 @@ import org.csource.common.*;
 */
 public class IniFileReader
 {
+	@SuppressWarnings("rawtypes")
 	private Hashtable paramTable;
 	private String conf_filename;
 	
@@ -59,7 +59,7 @@ public class IniFileReader
 			return (String)obj;
 		}
 		
-		return (String)((ArrayList)obj).get(0);
+		return (String)((ArrayList<?>)obj).get(0);
 	}
 
 /**
@@ -120,12 +120,13 @@ public class IniFileReader
 			return values;
 		}
 		
-		Object[] objs = ((ArrayList)obj).toArray();
+		Object[] objs = ((ArrayList<?>)obj).toArray();
 		values = new String[objs.length];
 		System.arraycopy(objs, 0, values, 0, objs.length);
 		return values;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void loadFromFile(String conf_filename) throws FileNotFoundException, IOException
 	{
 		FileReader fReader;

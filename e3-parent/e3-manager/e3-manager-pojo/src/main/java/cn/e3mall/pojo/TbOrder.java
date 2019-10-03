@@ -4,7 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class TbOrder  implements Serializable{
-    private String orderId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String orderId;
 
     private String payment;
 

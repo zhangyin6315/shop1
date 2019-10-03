@@ -411,7 +411,8 @@ public class Base64
    /**
     * debug display array
     */
-   public static void show (byte[] b)
+   @SuppressWarnings("unused")
+public static void show (byte[] b)
    {
       int count = 0;
       int rows = 0;
@@ -461,7 +462,7 @@ public class Base64
          try
          {
             Base64 b64 = new Base64();
-            String str = "agfrtu¿¦etÊ²1234¼Ù´óerty¿Õ234·¢¿¦2344Ê²µÄ";
+            String str = "agfrtuï¿½ï¿½etÊ²1234ï¿½Ù´ï¿½ertyï¿½ï¿½234ï¿½ï¿½ï¿½ï¿½2344Ê²ï¿½ï¿½";
             String str64 = "";
 
             //encode

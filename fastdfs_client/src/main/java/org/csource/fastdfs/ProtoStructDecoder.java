@@ -9,10 +9,7 @@
 package org.csource.fastdfs;
 
 import java.io.*;
-import java.util.*;
-import java.net.*;
 import java.lang.reflect.Array;
-import org.csource.common.*;
 
 /**
 * C struct body decoder
@@ -31,6 +28,7 @@ public class ProtoStructDecoder<T extends StructBase>
 /**
 * decode byte buffer
 */
+	@SuppressWarnings("unchecked")
 	public T[] decode(byte[] bs, Class<T> clazz, int fieldsTotalSize) throws Exception
 	{
 		if (bs.length % fieldsTotalSize != 0)

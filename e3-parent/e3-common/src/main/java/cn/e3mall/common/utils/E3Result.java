@@ -11,7 +11,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class E3Result implements Serializable {
 
-    // 定义jackson对象
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	// 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     // 响应业务状态

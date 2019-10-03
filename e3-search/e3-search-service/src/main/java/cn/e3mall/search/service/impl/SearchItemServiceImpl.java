@@ -3,11 +3,8 @@ package cn.e3mall.search.service.impl;
 import java.util.List;
 
 import org.apache.solr.client.solrj.SolrClient;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
-import org.apache.solr.client.solrj.impl.HttpSolrClient.Builder;
 import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import cn.e3mall.common.pojo.SearchItem;
@@ -52,7 +49,6 @@ private SolrClient solrClient;
 
 		} catch (Exception e) {
 			
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return E3Result.build(500, "数据导入异常");
 			}

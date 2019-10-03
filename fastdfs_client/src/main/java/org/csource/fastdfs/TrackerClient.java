@@ -567,6 +567,7 @@ public class TrackerClient
 	* @param trackerServer the tracker server
 	* @return group stat array, return null if fail
 	*/
+	@SuppressWarnings("unused")
 	public StructGroupStat[] listGroups(TrackerServer trackerServer) throws IOException
 	{
 		byte[] header;
