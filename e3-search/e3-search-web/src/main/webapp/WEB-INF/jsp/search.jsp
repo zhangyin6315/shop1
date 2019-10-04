@@ -18,7 +18,7 @@
 <!-- header start -->
 <jsp:include page="commons/header.jsp" />
 <jsp:include page="commons/mainmenu.jsp" />
-<!-------面包线 linknav--------->
+<!-------linknav--------->
 <div class="linknav">
 	<div class="schArticle">
 		<a href="/article/search?keyword=%E6%9C%88%E9%A5%BC" target="_blank">找到和“<span>${query}</span>”相关的文章<span
