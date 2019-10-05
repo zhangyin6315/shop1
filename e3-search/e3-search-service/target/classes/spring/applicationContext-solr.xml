@@ -8,21 +8,21 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-	
-
-	 <bean class="org.apache.solr.client.solrj.impl.CloudSolrClient.Builder" id="emptyBuilder"/>
+	<!-- solr 集群配置
+	<bean class="org.apache.solr.client.solrj.impl.CloudSolrClient.Builder" id="emptyBuilder"/>
     <bean factory-bean="emptyBuilder" factory-method="withZkHost" id="builder">
         <constructor-arg value="192.168.21.154:2181,192.168.21.155:2181,192.168.21.156:2181" type="java.lang.String"/>
     </bean>
     <bean factory-bean="builder" factory-method="build" id="solrClient">
         <property name="defaultCollection" value="mycore"/>
     </bean> 
-<!--  <bean id="builder" class="org.apache.solr.client.solrj.impl.HttpSolrClient.Builder">
+ 	-->
+ 	<bean id="builder" class="org.apache.solr.client.solrj.impl.HttpSolrClient.Builder">
         <constructor-arg name="baseSolrUrl"
             value="http://192.168.21.144:8983/solr/mycore" />
     </bean>
 
     <bean factory-bean="builder" factory-method="build" id="httpSolrClient">
     </bean>
--->
+
 </beans>
