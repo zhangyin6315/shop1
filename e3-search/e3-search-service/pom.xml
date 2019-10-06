@@ -88,7 +88,17 @@
 				<groupId>org.apache.solr</groupId>
 				<artifactId>solr-solrj</artifactId>
 			</dependency>
-		
+				<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+ 		</dependency>
+ 		
+<dependency>
+	<groupId>javax.jms</groupId>
+	<artifactId>javax.jms-api</artifactId>
+	<version>2.0.1</version>
+</dependency>
+
 	</dependencies>
 	<!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
 
