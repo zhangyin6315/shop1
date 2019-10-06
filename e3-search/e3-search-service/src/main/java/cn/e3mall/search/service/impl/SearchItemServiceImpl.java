@@ -42,7 +42,6 @@ private SolrClient solrClient;
 			//将文档写入索引库
 			solrClient.add(document);
 //			solrClient.deleteById(searchItem.getId());
-			
 			}
 		solrClient.commit();
 		return E3Result.ok();
@@ -58,6 +57,33 @@ private SolrClient solrClient;
 
 		
 		
+	}
+	@Override
+	public E3Result importItemById(Long itemId) {
+		try {
+			// 查询商品
+		SearchItem searchItem=itemMapper.getItemById(itemId);
+		//遍历列表
+			//创建一个文档对象SolrInputDocument
+			SolrInputDocument document=new SolrInputDocument();
+			//向对象中添加域。文档中必须有一个域的id所有域的名称必须在manger—schema中定义
+			document.addField("id", searchItem.getId());
+			document.addField("item_title",searchItem.getTitle());
+			document.addField("item_price", searchItem.getPrice());
+			document.addField("item_sell_point", searchItem.getSell_point());
+			document.addField("item_image", searchItem.getImage());
+			document.addField("item_category_name", searchItem.getCategory_name());
+			//将文档写入索引库
+			solrClient.add(document);
+		solrClient.commit();
+		return E3Result.ok();
+
+		} catch (Exception e) {
+			
+				e.printStackTrace();
+				return E3Result.build(500, "数据导入异常");
+			}
+	
 	}
 
 }

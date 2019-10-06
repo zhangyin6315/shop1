@@ -3,7 +3,15 @@ package cn.e3mall.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -11,7 +19,6 @@ import com.github.pagehelper.PageInfo;
 
 import cn.e3mall.common.pojo.EasyUIDataFGridResult;
 import cn.e3mall.common.utils.E3Result;
-import cn.e3mall.common.utils.IDUtils;
 import cn.e3mall.mapper.TbItemDescMapper;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
@@ -26,6 +33,10 @@ public class ItemServiceImpl implements ItemService {
 	private TbItemMapper itemMapper;
 	@Autowired
 	private TbItemDescMapper itemDescMapper;
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	@Resource
+	private Destination topicDestination;
 
 	@Override
 	public TbItem getItemById(Long itemId) {
@@ -56,10 +67,8 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public E3Result addItem(TbItem item, String desc) {
-		//生成商品id
-		Long itemId=IDUtils.genItemId();
 		//补全item 属性
-		item.setId(itemId);
+		
 		//1正常,2下架,3删除
 		item.setStatus((byte)1);
 		item.setCreated(new Date());
@@ -69,14 +78,13 @@ public class ItemServiceImpl implements ItemService {
 		//创建一个商品描述表对应的pojo
 		TbItemDesc itemDesc=new TbItemDesc();
 		//补全属性
-		itemDesc.setItemId(itemId);
+		itemDesc.setItemId(item.getId());
 		itemDesc.setItemDesc(desc);
 		itemDesc.setCreated(new Date());
 		itemDesc.setUpdated(new Date());
 		//向商品描述表插入数据
 		itemDescMapper.insert(itemDesc);
-		//返回成功
-		
+	
 		return E3Result.ok();
 	}
 	@Override
@@ -143,6 +151,19 @@ public class ItemServiceImpl implements ItemService {
 				itemDescMapper.updateByPrimaryKey(itemDesc);
 				//返回成功
 				return E3Result.ok();
+	}
+	@Override
+	public void sendaddItemMessage(String itemId) {
+		// TODO Auto-generated method stub
+		//发送消息
+		jmsTemplate.send(topicDestination,new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				
+				return session.createTextMessage(itemId);
+			}
+		});
 	}
 	
 

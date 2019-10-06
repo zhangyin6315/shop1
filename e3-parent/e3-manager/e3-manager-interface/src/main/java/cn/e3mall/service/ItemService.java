@@ -14,4 +14,6 @@ E3Result instockItem(String ids);
 E3Result reshelfItem(String ids);
 TbItemDesc selectTbItemDesc(Long itemId);
 E3Result updateItem(TbItem item, String desc);
+
+void sendaddItemMessage(String string);
 }
