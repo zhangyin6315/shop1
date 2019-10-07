@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>${item.title } - 宜立方商城</title>
@@ -33,7 +28,7 @@
 	};
 	</script>
 	
-	<script src="/js/jquery-1.5.1.min.js?v=20160713" type="text/javascript"></script>
+<script src="/js/jquery-1.5.1.min.js?v=20160713" type="text/javascript"></script>
 <script src="/js/jquery.alerts.js?v=20160713" type="text/javascript"></script>
 <script src="/js/common.js?v=20160713" type="text/javascript"></script>
 <script src="/js/cart.js?v=20160713" type="text/javascript"></script>
@@ -57,9 +52,9 @@
 </head>
 <body >
 <!-- header start -->
-<jsp:include page="commons/header.jsp" />
+<#include "commons/header.ftl" />
 <!-- header end -->
-<jsp:include page="commons/mainmenu.jsp" />
+<#include "commons/mainmenu.ftl" />
 <div class="linknav"><div class="breadcrumb"><strong><a href="/food/6-0-0-0-0-2-0-0-0-0-0.html">休闲食品</a></strong><span> &gt; <a href="/food/7321-0-0-0-0-2-0-0-0-0-0.html">月饼</a> &gt; <a href="/food/7331-0-0-0-0-2-0-0-0-0-0.html">其他月饼</a> &gt; <a href="http://www.e3mall.cn/pinpai/7331-10863.html">我是花吃</a> &gt; 我是花吃 我是花吃鲜花月饼团圆礼盒390g</span></div></div>
 <div class="pWrap">
     <div class="productIntro">
@@ -74,7 +69,7 @@
                 <div class="pItemsPrice" id="price-sf">
                 	<div class="priceBox">
                 		<span class="dt">优选价：</span><span class="rmb">￥</span>
-                		<strong class="price"><fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price / 100 }"/></strong>
+                		<strong class="price">${item.price / 100 }"</strong>
                 	</div>
                 	<div class="boxWb"></div><div id="productStamp" class="productStamp_1"></div></div>
                 <div class="clear"></div>
@@ -157,7 +152,7 @@
 		<div class="pView">
                                 <div id="pView">
                 <div id="zoom-jpg" class="jqzoom">
-                <img alt="" width="330" height="330" src="${item.images[0] }" jqimg="${item.images[0] }"/>
+                <img alt="" width="330" height="330" src="${item.images[0] }" jqimg="${item.images[0]}"/>
                 </div>
                 <div id="pic-list">
                     <a href="javascript:void(0);" class="btn-control disabled" id="btn-forward"><b></b></a>
@@ -165,9 +160,9 @@
         
                     <div class="pic-items" style="position: absolute; width: 50px; height: 300px; overflow: hidden;">
                         <ul style="position: absolute; left: 0px; top: 0px; height: 240px;">
-                           <c:forEach items="${item.images }" var="image">
+                           <#list item.images as image>
                            <li style="float: left;"><img title="${item.title } " alt="${item.title }" src="${image }"></li>
-                           </c:forEach>
+                           </#list>
                         </ul>
                     </div>
                 </div>
@@ -360,6 +355,6 @@
     <div class="clear"></div>    
 </div>
 <div class="clear1"></div>
-<jsp:include page="commons/footer.jsp" />
+<#include "commons/footer.ftl" />
 </body>
 </html>
