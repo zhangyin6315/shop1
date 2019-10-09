@@ -7,7 +7,7 @@
   </parent>
   <artifactId>e3-sso-web</artifactId>
   <packaging>war</packaging>
-    <dependencies>
+    <dependencies>  
 		<dependency>
 			<groupId>cn.e3mall</groupId>
 			<artifactId>e3-sso-interface</artifactId>
