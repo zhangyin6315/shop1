@@ -10,7 +10,8 @@
   <modules>
   	<module>e3-sso-interface</module>
   	<module>e3-sso-service</module>
-  </modules>   <dependencies>
+  </modules>
+   <dependencies>
 		<dependency>
 			<groupId>cn.e3mall</groupId>
 			<artifactId>e3-common</artifactId>
